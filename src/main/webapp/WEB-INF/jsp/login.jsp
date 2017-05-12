@@ -1,43 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: RyanLeno
-  Date: 2017-05-11
-  Time: 04:14 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="include.jsp"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Login</title>
 </head>
 <body>
+<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
 
-<form action="login" method="post">
-    <div>
-        <table>
-            <thead>
-            <th>Username</th>
-            <th>Password</th>
-            </thead>
-            <tr>
-                <td><input name="userName" id="user-name-label"></td>
-                <td><<input type="password" id="password-label" name="password"></td>
-            </tr>
-        </table>
-    </div>
-    <div>
-        <input type="submit" value="login"/>
-    </div>
-    <div>
-        <input type="submit" value="cancel"/>
-    </div>
-
-
-
-    </table>
-
-
-</form>
-
+    <form:label path="username">Enter your user-name</form:label>
+    <form:input id="username" name="username" path="username" /><br>
+    <form:label path="username">Please enter your password</form:label>
+    <form:password id="password" name="password" path="password" /><br>
+    <input type="submit" value="Submit" />
+</form:form>
 </body>
 </html>
