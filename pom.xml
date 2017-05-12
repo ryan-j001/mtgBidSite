@@ -10,6 +10,8 @@
 
   <properties>
     <springVersion>4.3.8.RELEASE</springVersion>
+      <springSecurityVersion>4.2.2.RELEASE</springSecurityVersion>
+
   </properties>
 
 
@@ -35,7 +37,30 @@
       <version>${springVersion}</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>${springSecurityVersion}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>${springSecurityVersion}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>${springSecurityVersion}</version>
+      </dependency>
+
+
+
+      <!-- https://mvnrepository.com/artifact/jstl/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
