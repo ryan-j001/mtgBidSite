@@ -10,7 +10,7 @@ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
     <security:http auto-config="true">
         <security:intercept-url pattern="/main*" access="ROLE_ADMIN"/>
-        <security:form-login login-page="/login" default-target-url="/main"
+        <security:form-login login-page="/login" default-target-url="/welcome"
                              authentication-failure-url="/loginError"/>
     </security:http>
     <security:authentication-manager>
