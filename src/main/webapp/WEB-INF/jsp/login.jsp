@@ -8,7 +8,6 @@
 </head>
 <body>
 <form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
-
     <form:label path="username">Enter your user-name</form:label>
     <form:input id="username" name="username" path="username" /><br>
     <form:label path="username">Please enter your password</form:label>

@@ -14,6 +14,7 @@ public class LoginController {
 
 	public static final String LOGIN = "login";
 	public static final String WELCOME = "welcome";
+	private static final String LOGIN_ERROR = "loginError";
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -31,10 +32,23 @@ public class LoginController {
 
 	}
 
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView executeLogin(HttpServletRequest request, @ModelAttribute("loginBean") LoginBean loginBean) {
 		request.setAttribute("loggedInUser", loginBean.getUsername());
+		return displayWelcome(request);
+	}
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public ModelAndView displayWelcome(HttpServletRequest request) {
 		return new ModelAndView(WELCOME);
 	}
+
+
+	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
+	public ModelAndView displayLoginError(HttpServletRequest request) {
+				return new ModelAndView(LOGIN_ERROR);
+	}
+
 
 }
