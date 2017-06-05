@@ -1,3 +1,4 @@
+<%@include file="include.jsp"%>
 <%--
   Created by IntelliJ IDEA.
   User: ryanj
