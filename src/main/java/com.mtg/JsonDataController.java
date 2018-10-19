@@ -36,7 +36,6 @@ public class JsonDataController {
     public @ResponseBody
     ResponseEntity<JsonNode> getCardLists(@PathVariable("cardSet") String cardSet) {
 
-
         List<MtgCard> mtgCards = new ArrayList<MtgCard>();
 
         mtgCards.add(new MtgCard("normal", "Ancestral Recall", "{U}", "1", (Arrays.asList("Blue")),
