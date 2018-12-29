@@ -9,8 +9,11 @@ public class CustomLogin {
     private static final int WORKLOAD = 4;
 
     public String getApplicationRole(String userName, String password) {
+
+      String localPassword =   BCrypt.hashpw("fishpaste",BCrypt.gensalt());
+
         if (userName.equalsIgnoreCase("Fish") &&
-                BCrypt.checkpw(password,"$2a$04$h4z3rbbEVz4D59U2SI597e.i3UysOBr/I6nZQc2yKpIxvxY0vEA/C"))
+                BCrypt.checkpw(password,localPassword))
 
                {
             return "ROLE_USER";
