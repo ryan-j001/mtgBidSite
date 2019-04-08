@@ -15,10 +15,15 @@ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
         <property name="authenticationManager" ref="authenticationManager"/>
         <property name="postOnly" value="false"/>
         <property name="authenticationSuccessHandler" ref="customSuccessHandler"/>
+        <property name="authenticationFailureHandler" ref="customfailureHandler"/>
+
     </bean>
 
     <bean id="customSuccessHandler"
           class="com.mtg.CustomSuccessHandler"/>
+
+    <bean id="customfailureHandler"
+          class="com.mtg.CustomAuthenticationFailureHandler"/>
 
 
     <security:http auto-config="false">

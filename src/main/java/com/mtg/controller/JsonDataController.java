@@ -1,4 +1,4 @@
-package com.mtg.ws.controller;
+package com.mtg.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
