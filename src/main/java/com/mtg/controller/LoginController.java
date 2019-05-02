@@ -31,7 +31,7 @@ public class LoginController {
 
 	}
 
-	@GetMapping(value = "/login")
+	@PostMapping(value = "/login")
 	public ModelAndView executeLogin(HttpServletRequest request, @ModelAttribute("loginBean") LoginBean loginBean) {
 		request.setAttribute("loggedInUser", loginBean.getUsername());
 		return displayWelcome(request);
