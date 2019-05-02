@@ -18,17 +18,18 @@ import java.util.logging.Logger;
 
 public class CustomSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
-    private final static Logger LOGGER = Logger.getLogger(CustomSuccessHandler.class.getName());
+    private static final Logger SuccessHandlerLogger = Logger.getLogger(CustomSuccessHandler.class.getName());
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
 
-        LOGGER.info("authentication success");
+        SuccessHandlerLogger.info("authentication success");
         handle(httpServletRequest, httpServletResponse, authentication);
 
     }
 
+    @Override
     protected void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException {
 
 

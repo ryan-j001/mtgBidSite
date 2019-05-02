@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mtg.dto.Legalities;
 import com.mtg.dto.MtgCard;
-import org.json.JSONException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
@@ -18,25 +20,25 @@ import java.util.*;
 @RestController
 public class JsonDataController {
 
-    @RequestMapping(value = "/getSearchResults", method = RequestMethod.GET)
+    @GetMapping(value = "/getSearchResults")
     public @ResponseBody
-    ResponseEntity<JsonNode> getSearchResults() throws JSONException {
+    ResponseEntity<JsonNode> getSearchResults() {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Map<String, String> responseJson = new HashMap<String, String>();
+        Map<String, String> responseJson = new HashMap<>();
 
         responseJson.put("status", "User created.");
         JsonNode jsonNode = objectMapper.valueToTree(responseJson);
-        return new ResponseEntity<JsonNode>(jsonNode, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonNode, HttpStatus.CREATED);
 
     }
 
 
-    @RequestMapping(value = "/getCardLists/{cardSet}", method = RequestMethod.GET)
+    @GetMapping(value = "/getCardLists/{cardSet}")
     public @ResponseBody
     ResponseEntity<JsonNode> getCardLists(@PathVariable("cardSet") String cardSet) {
 
-        List<MtgCard> mtgCards = new ArrayList<MtgCard>();
+        List<MtgCard> mtgCards = new ArrayList<>();
 
         mtgCards.add(new MtgCard("normal", "Ancestral Recall", "{U}", "1", (Arrays.asList("Blue")),
                 "Instant", (Collections.singletonList("Instant")), null,
@@ -48,7 +50,7 @@ public class JsonDataController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.valueToTree(mtgCards);
-        return new ResponseEntity<JsonNode>(jsonNode, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonNode, HttpStatus.CREATED);
 
     }
 

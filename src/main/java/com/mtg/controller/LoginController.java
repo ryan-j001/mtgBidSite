@@ -1,10 +1,7 @@
 package com.mtg.controller;
 
 import com.mtg.LoginBean;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +15,14 @@ public class LoginController {
 	private static final String LOGIN_ERROR = "loginError";
 
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public ModelAndView displayHome(HttpServletRequest request, HttpServletResponse response) {
 
 		return displayLogin(request, response);
 	}
 
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@GetMapping(value = "/login")
 	public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView model = new ModelAndView(LOGIN);
 		LoginBean loginBean = new LoginBean();
@@ -34,20 +31,18 @@ public class LoginController {
 
 	}
 
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@GetMapping(value = "/login")
 	public ModelAndView executeLogin(HttpServletRequest request, @ModelAttribute("loginBean") LoginBean loginBean) {
 		request.setAttribute("loggedInUser", loginBean.getUsername());
 		return displayWelcome(request);
 	}
 
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	@GetMapping(value = "/welcome")
 	public ModelAndView displayWelcome(HttpServletRequest request) {
 		return new ModelAndView(WELCOME);
 	}
 
-
-	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
+	@GetMapping(value = "/loginError")
 	public ModelAndView displayLoginError(HttpServletRequest request) {
 				return new ModelAndView(LOGIN_ERROR);
 	}

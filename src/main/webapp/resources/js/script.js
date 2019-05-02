@@ -20,7 +20,6 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (result) {
                 console.log(result);
-                var row;
                 for (var property in result){
                     var row = "<p>" + property.valueOf() +":"+ result[property]  + "</p>";
                 }

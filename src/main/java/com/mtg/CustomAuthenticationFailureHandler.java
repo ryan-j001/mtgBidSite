@@ -1,6 +1,5 @@
 package com.mtg;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -19,8 +18,7 @@ import java.util.logging.Logger;
 public class CustomAuthenticationFailureHandler
         implements AuthenticationFailureHandler {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-    private final static Logger LOGGER = Logger.getLogger(CustomAuthenticationFailureHandler.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CustomAuthenticationFailureHandler.class.getName());
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
@@ -29,6 +27,8 @@ public class CustomAuthenticationFailureHandler
             HttpServletResponse response,
             AuthenticationException exception)
             throws IOException, ServletException {
+
+        LOGGER.info("AuthenticationFailure");
 
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         Map<String, Object> data = new HashMap<>();
