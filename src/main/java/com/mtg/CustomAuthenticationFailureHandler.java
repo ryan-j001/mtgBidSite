@@ -1,5 +1,7 @@
 package com.mtg;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -13,12 +15,12 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
+
 
 public class CustomAuthenticationFailureHandler
         implements AuthenticationFailureHandler {
 
-    private static final Logger LOGGER = Logger.getLogger(CustomAuthenticationFailureHandler.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationFailureHandler.class.getName());
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
@@ -28,7 +30,7 @@ public class CustomAuthenticationFailureHandler
             AuthenticationException exception)
             throws IOException, ServletException {
 
-        LOGGER.info("AuthenticationFailure");
+        logger.info("AuthenticationFailure");
 
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         Map<String, Object> data = new HashMap<>();

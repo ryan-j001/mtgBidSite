@@ -17,7 +17,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	public Authentication authenticate(Authentication authentication) {
 		String userName = authentication.getName().trim();
 		String password = authentication.getCredentials().toString().trim();
-		Authentication auth = null;
+		Authentication auth;
 		CustomLogin login = new CustomLogin();
 		//Authenticate the user based on your custom logic
 		String role = login.getApplicationRole(userName, password);
