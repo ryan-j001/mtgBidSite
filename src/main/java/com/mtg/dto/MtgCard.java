@@ -23,22 +23,8 @@ public class MtgCard {
     private List<Legalities> legalities;
     private List<String> colorIdentity;
 
-    public MtgCard(String layout, String name, String manaCost, String cmc, List<String> colors, String type, List<String> types, List<String> subTypes, String text, String power, String toughness, String imageName, List<String> printings, List<Legalities> legalities, List<String> colorIdentity) {
-        this.layout = layout;
-        this.name = name;
-        this.manaCost = manaCost;
-        this.cmc = cmc;
-        this.colors = colors;
-        this.type = type;
-        this.types = types;
-        this.subTypes = subTypes;
-        this.text = text;
-        this.power = power;
-        this.toughness = toughness;
-        this.imageName = imageName;
-        this.printings = printings;
-        this.legalities = legalities;
-        this.colorIdentity = colorIdentity;
+    public MtgCard() {
+        //Default constructor
     }
 
     public String getLayout() {
@@ -168,20 +154,20 @@ public class MtgCard {
 
         MtgCard mtgCard = (MtgCard) o;
 
-        if (!getLayout().equals(mtgCard.getLayout())) return false;
-        if (!getName().equals(mtgCard.getName())) return false;
-        if (!getManaCost().equals(mtgCard.getManaCost())) return false;
-        if (!getCmc().equals(mtgCard.getCmc())) return false;
-        if (!getColors().equals(mtgCard.getColors())) return false;
-        if (!getType().equals(mtgCard.getType())) return false;
-        if (!getTypes().equals(mtgCard.getTypes())) return false;
-        if (!getSubTypes().equals(mtgCard.getSubTypes())) return false;
-        if (!getText().equals(mtgCard.getText())) return false;
-        if (!getPower().equals(mtgCard.getPower())) return false;
-        if (!getToughness().equals(mtgCard.getToughness())) return false;
-        if (!getImageName().equals(mtgCard.getImageName())) return false;
-        if (!getPrintings().equals(mtgCard.getPrintings())) return false;
-        if (!getLegalities().equals(mtgCard.getLegalities())) return false;
+        if (!getLayout().equals(mtgCard.getLayout())
+                || !getName().equals(mtgCard.getName())
+                || !getManaCost().equals(mtgCard.getManaCost())
+                || !getCmc().equals(mtgCard.getCmc())
+                || !getColors().equals(mtgCard.getColors())
+                || !getType().equals(mtgCard.getType())
+                || !getTypes().equals(mtgCard.getTypes())
+                || !getSubTypes().equals(mtgCard.getSubTypes())
+                || !getText().equals(mtgCard.getText())
+                || !getPower().equals(mtgCard.getPower())
+                || !getToughness().equals(mtgCard.getToughness())
+                || !getImageName().equals(mtgCard.getImageName())
+                || !getPrintings().equals(mtgCard.getPrintings())
+                || !getLegalities().equals(mtgCard.getLegalities())) return false;
         return getColorIdentity().equals(mtgCard.getColorIdentity());
     }
 
